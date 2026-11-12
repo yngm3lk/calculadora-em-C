@@ -24,14 +24,14 @@ int main(){
             continue;
         }
 
-        if (opcao == 5) {
-            printf("Obrigado por usar a calculadora! Até a próxima.\n");
-            break;
-        }
-
         if (opcao < 1 || opcao > 5) {
             printf("Opção inválida. Por favor, insira um número entre 1 e 5.\n");
             continue;
+        }
+
+        if (opcao == 5) {
+            printf("Obrigado por usar a calculadora! Até a próxima.\n");
+            break;
         }
 
         printf("Digite o primeiro número: ");
