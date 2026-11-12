@@ -18,9 +18,16 @@ int main(){
         printf("5. Sair\n");
         printf("Opção: ");
 
-        if (scanf("%d", &opcao) != 1) {
+        int res = scanf("%d", &opcao);
+        char ch = getchar();
+
+        if (res != 1 || (ch != '\n' && ch != '\r')) {
             printf("Opção inválida. Por favor, insira um número entre 1 e 5.\n");
-            while(getchar() != '\n');
+            if (ch != '\n' && ch != '\r' && ch != EOF) {
+                while (ch != '\n' && ch != EOF) {
+                    ch = getchar();
+                }
+            }
             continue;
         }
 
@@ -36,8 +43,11 @@ int main(){
 
         printf("Digite o primeiro número: ");
         scanf("%lf", &a);
+        while(getchar() != '\n');
+
         printf("Digite o segundo número: ");
         scanf("%lf", &b);
+        while(getchar() != '\n');
 
         if (opcao == 1) {
             resultado = a + b;
@@ -60,6 +70,8 @@ int main(){
         while(1) {
             printf("Deseja realizar outra operação? (s/n): ");
             scanf(" %c", &continuar);
+            while(getchar() != '\n');
+
             if (continuar == 's' || continuar == 'S') {
                 break;
             } else if (continuar == 'n' || continuar == 'N') {
